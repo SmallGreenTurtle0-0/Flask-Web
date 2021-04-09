@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    personal image
+{% endblock %}
+
+{% block content%}
+<h1><strong>PERSONAL IMAGE</strong></h1>
+<!-- Image here -->
+<div class="row">
+    <div class="col-12">
+        <img class="mx-auto d-block" src="/{{ image }}" alt="img">
+    </div>
+</div>
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+</style>
+{% endblock %}

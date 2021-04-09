@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content%}
+
+<div>
+    <div class="center">
+        <h1 class="text-center">Welcome To DS Lab</h1>
+        <br>
+        <br>
+        <img src="static/img/Untitled.png" alt="logo-NEU">
+        <br>
+        <br>
+        <a href="{{ url_for('checkin_page') }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">RUN</a>
+    </div>
+</div>
+<style>
+    body {
+        background-image: url(static/img/mountain_bg.jpg);
+    }
+    .center {
+        margin-top: 10%;
+        text-align: center;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}
+    Check in
+{% endblock %}
+
+{% block content%}
+<h1><strong>CHECK IN</strong></h1>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Check</th>
+        <th scope="col">Time in</th>
+        <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items1 %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.check }}</td>
+                <td>{{ item.timein }}</td>
+                <!-- im = {{ item.image }} -->
+                <td>
+                    <a class="btn btn-primary" href="{{ url_for('personalImage_page', img=item.image) }}">Link</a>
+                    <!-- <button class="btn btn-outline btn-info">More Info</button> -->
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h1><strong>MISSED CHECK IN</strong></h1>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Time in</th>
+        <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items2 %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.timein }}</td>
+            <!-- <td>{{ item.image }}</td> -->
+            <td>
+                <a class="btn btn-primary" href="{{ url_for('personalImage_page', img=item.image) }}">Link</a>
+                <!-- <button class="btn btn-outline btn-info">More Info</button> -->
+            </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+</style>
+{% endblock %}

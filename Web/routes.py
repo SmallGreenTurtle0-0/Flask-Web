@@ -8,13 +8,15 @@ from flask import render_template, url_for, redirect, request
 def home_page():
     form = EnterForm()
     if request.method == 'POST':
-        return redirect(url_for('checkin_page', id=form.ID))
+        return redirect(url_for('checkin_page', roomID=form.roomID, date=form.date, time=form.time))
     return render_template('home.html', form=form)
 
-@app.route('/checkin/<string:id>')
-def checkin_page(id):
-    # type of id here is string
-    # id to verify which (room, time, date) is this. 
+@app.route('/checkin/<string:roomID>/<string:date>/<string:time>')
+def checkin_page(roomID, date, time):
+    # to get value of roomID in form of string: {{ roomID }}
+    # to get value of date in form of string: {{ date }}
+    # to get value of time in form of string: {{ time }}
+
     items1 = [
         {'id': 1, 'name': 'Hoang Thuy Ha', 'check': 1, 'timein': '15:30', 'image': '/static/img/test.jpg'},
         {'id': 2, 'name': 'Hoa hoa hoa', 'check': 0, 'timein': '16:30', 'image': '/static/img/test.jpg'},

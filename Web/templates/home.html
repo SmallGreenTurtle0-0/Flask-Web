@@ -16,8 +16,14 @@
                 <h1 class="text-center">Please fill all information below.</h1>
                 <br>
             </div>
-            {{ form.ID.label() }}
-            {{ form.ID(class="form-control", placeholder="ID of 'phong thi'") }}
+            {{ form.roomID.label() }}
+            {{ form.roomID(class="form-control", placeholder="roomID") }}
+            <br>
+            {{ form.date.label() }}
+            {{ form.date(class="form-control", placeholder="date") }}
+            <br>
+            {{ form.time.label() }}
+            {{ form.time(class="form-control", placeholder="time") }}
             <br>
             {{ form.submit(class="btn btn-lg btn-block btn-primary")}}
         </form>

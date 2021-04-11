@@ -1,20 +1,13 @@
-from Web import app
-from Web import forms
-from Web.forms import EnterForm
-from flask import render_template, url_for, redirect, request
+from flask import Flask, render_template
+app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/')
+@app.route('/home')
 def home_page():
-    form = EnterForm()
-    if request.method == 'POST':
-        return redirect(url_for('checkin_page', id=form.ID))
-    return render_template('home.html', form=form)
+    return render_template('home.html')
 
-@app.route('/checkin/<string:id>')
-def checkin_page(id):
-    # type of id here is string
-    # id to verify which (room, time, date) is this. 
+@app.route('/checkin')
+def checkin_page():
     items1 = [
         {'id': 1, 'name': 'Hoang Thuy Ha', 'check': 1, 'timein': '15:30', 'image': '/static/img/test.jpg'},
         {'id': 2, 'name': 'Hoa hoa hoa', 'check': 0, 'timein': '16:30', 'image': '/static/img/test.jpg'},
